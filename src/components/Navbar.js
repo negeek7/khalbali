@@ -68,7 +68,7 @@ const Navbar = ({
         fontSize={['1.3rem', '2.25rem']}
         color="white"
       >
-        weddit
+        Khalbali
       </Heading>
       <HStack>
         <Menu>
