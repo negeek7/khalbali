@@ -32,6 +32,22 @@ ul{
         display: none;
     }
 }
+@media only screen and (max-width: 1105px){
+    li{
+        display: none;
+    }
+    .burger{
+        display: block;
+    }
+    .input{
+        width: 50%;
+    }
+}
+@media only screen and (min-width: 1250px) and (max-width: 1515px){
+    .input{
+        margin-right: 1rem;
+    }
+} 
 @media only screen and (min-width: 481px) and (max-width: 1000px) {
     .burger{
         display: block;
@@ -43,3 +59,4 @@ ul{
         display: block;
     }
 }
+/* 1257 115 */
