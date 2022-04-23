@@ -82,8 +82,8 @@ const Post = ({
             target={isTextPost ? null : '_blank'}
             mt={2}
             mb={4}
-            fontSize="1.5em"
-            fontWeight="500"
+            fontSize="1.2em"
+            fontWeight="700"
           >
             {title || deletedText}
           </Heading>
