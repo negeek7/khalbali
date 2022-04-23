@@ -68,7 +68,7 @@ const Post = ({
             {`Posted by `}
           </Text>
           <Text as="span">{author ? `u/${author}` : deletedText}</Text>
-          <Text as="span" color={postDetailColor}>
+          <Text as="span" color={postDetailColor} style={{ float: 'right' }}>
             {' '}
             <Tooltip label={moment(createdAt).format('LLLL')}>
               {moment(createdAt).fromNow()}
