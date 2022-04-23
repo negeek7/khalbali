@@ -1,5 +1,11 @@
 import PostList from './PostList';
 
-const HomePage = () => <PostList />;
+function HomePage() {
+  return (
+    <div>
+      <PostList />
+    </div>
+  );
+}
 
 export default HomePage;
