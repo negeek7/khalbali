@@ -14,7 +14,7 @@ function PostListHeading() {
   return (
     <div>
       <TableContainer>
-        <Table variant="simple" size="lg">
+        <Table variant="unstyled" size="lg">
           <Thead>
             <Tr>
               <Th width={4000}>Topic</Th>
