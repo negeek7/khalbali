@@ -1,15 +1,6 @@
 import React from 'react';
-import {
-  Table,
-  Thead,
-  Tr,
-  Box,
-  Th,
-  TableContainer,
-  VisuallyHidden,
-} from '@chakra-ui/react';
-import postHeaderStyle from '.././styles/postHeader.module.css';
-
+import { Table, Thead, Tr, Th, TableContainer } from '@chakra-ui/react';
+import '.././styles/postHeader.module.css';
 function PostListHeading() {
   return (
     <div>
