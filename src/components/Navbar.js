@@ -1,11 +1,17 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
+import { SearchIcon } from '@chakra-ui/icons';
+import navStyle from '.././styles/navbar.module.css';
 import {
   Box,
   Flex,
+  Input,
+  InputGroup,
+  InputLeftElement,
   Heading,
   Spacer,
+  Text,
   HStack,
   Button,
   Menu,
@@ -53,15 +59,8 @@ const Navbar = ({
       justifyContent="flex-start"
       alignItems="center"
       mb={7}
-      
     >
-    
-    <Image
-    boxSize='50px'
-    objectFit='cover'
-    src='logo-white.png'
-    alt='logo'
-  />
+      <Image boxSize="50px" objectFit="cover" src="logo-white.png" alt="logo" />
       <Heading
         ml={[2, 4]}
         display={user ? 'block' : ['none', 'block']}
@@ -72,7 +71,7 @@ const Navbar = ({
       </Heading>
       <HStack>
         <Menu>
-          <MenuButton mx={2} as={Button} rightIcon={<ChevronDownIcon />}>
+          <MenuButton mx={3} as={Button} rightIcon={<ChevronDownIcon />}>
             {subredditName || 'Home'}
           </MenuButton>
           <MenuList>
@@ -80,6 +79,7 @@ const Navbar = ({
               Home
             </MenuItem>
             <MenuDivider />
+
             {subreddits.map(({ name }) => (
               <MenuItem
                 key={name}
@@ -105,6 +105,29 @@ const Navbar = ({
             Submit
           </Button>
         )}
+        <div className={navStyle.burger}>
+          <div className={navStyle.line}></div>
+          <div className={navStyle.line}></div>
+          <div className={navStyle.line}></div>
+        </div>
+        <div className={navStyle.navOptions}>
+          <ul>
+            <li>
+              <Link to="categories">Categories</Link>
+            </li>
+            <li>Trending</li>
+            <li>New</li>
+            <li>Pages</li>
+            <InputGroup className={navStyle.input}>
+              <InputLeftElement
+                pointerEvents="none"
+                children={<SearchIcon color="gray.300" />}
+              />
+              <Input type="text" placeholder="Search" />
+            </InputGroup>
+            {/* <SearchIcon className={navStyle.search} /> */}
+          </ul>
+        </div>
       </HStack>
       <Spacer />
 

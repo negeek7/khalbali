@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { FaFacebookF} from "react-icons/fa";
+import { AiOutlineTwitter } from "react-icons/ai";
+import loginStyle from '.././styles/form.module.css';
+
 import {
   Box,
   Stack,
@@ -9,9 +13,15 @@ import {
   Button,
   Alert,
   AlertIcon,
+  color,
+  Checkbox,
+  Flex,
+  Image
 } from '@chakra-ui/react';
+
 import { createLoadingAndErrorSelector } from '../selectors';
-import { startLogin } from '../actions/auth';
+import { login, startLogin } from '../actions/auth';
+import { Link } from 'react-router-dom';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -37,7 +47,7 @@ class LoginPage extends React.Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { username, password,checkBox } = this.state;
     const { isLoading, error, location } = this.props;
     const requireAuth =
       location && location.state && location.state.requireAuth;
@@ -55,37 +65,81 @@ class LoginPage extends React.Component {
             {error}
           </Alert>
         )}
+        <div className={loginStyle.header}>
+        <Image boxSize={55} src="logo-white.png" alt="logo" m={5} pt={3}/>
+        <div>
+        <h1 className={loginStyle.heading}>
+        Welcome to Forum 19
+        </h1>
+        <p className={loginStyle.pera}>
+        Log into your account to unlock true power of community.
+        </p>
+        <hr></hr>
+        </div>
         <form onSubmit={this.handleSubmit}>
-          <Stack spacing={3}>
-            <FormControl>
+          <Stack spacing={3} m={10} >
+            <FormControl className={loginStyle.formText} >
+            Username
               <Input
                 value={username}
                 onChange={(e) => this.setState({ username: e.target.value })}
                 id="username-input"
                 variant="filled"
                 type="text"
-                placeholder="username"
+                placeholder="azyxcd"
                 size="md"
-                isRequired
-              />
+                isRequired className={loginStyle.inputText} />
             </FormControl>
-            <FormControl>
+            <FormControl className={loginStyle.formText}>
+            Password
               <Input
                 value={password}
                 onChange={(e) => this.setState({ password: e.target.value })}
                 id="password-input"
                 variant="filled"
                 type="password"
-                placeholder="password"
+                placeholder="*******"
                 size="md"
-                isRequired
+                isRequired className={loginStyle.inputText}
               />
             </FormControl>
-            <Button type="submit" isLoading={isLoading || null}>
+
+            <Flex color="#303344" fontWeight="bold">
+              <Checkbox
+                value={checkBox}
+                size="md"
+                isRequired borderColor="black" mr={2}
+              /> Remember me
+
+              <Link style={{marginLeft:"120px"}} >Forgot Password</Link>
+
+            </Flex>
+            <Button type="submit" isLoading={isLoading || null} backgroundColor="#2172cd">
               Login
             </Button>
+            <p style={{color:"#666f74"}} >Or login with social network</p>
+
+            <div style={{position:"relative"}}>
+
+            <Button backgroundColor="#3b5998" width="170px">
+               <FaFacebookF/>Facebook
+            </Button>
+            <Button backgroundColor="#00aced" width="170px" ml="40px">
+             <AiOutlineTwitter/> Twitter
+            </Button>
+            </div>
+           <p style={{color:"#666f74"}}>Don’t have an account? 
+           <Link to='#' className={loginStyle.term}>Signup Here</Link>
+           </p> 
+           <h5 className={loginStyle.h5}>By Logging in, signing in or continuing, I agree to Forum19’s <Link to='#' className={loginStyle.term}> Terms of Use</Link> and <Link to='#' className={loginStyle.term}>Privacy Policy</Link>.</h5>
+          
+          
+          
+
           </Stack>
+         
         </form>
+        </div>
       </Box>
     );
   }
@@ -108,3 +162,5 @@ const mapDispatchToProps = (dispatch) => ({
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(LoginPage)
 );
+
+

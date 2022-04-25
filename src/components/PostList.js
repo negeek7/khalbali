@@ -13,6 +13,7 @@ import {
 import Post from './Post';
 import { createLoadingAndErrorSelector, postListSelector } from '../selectors';
 import { getPostList } from '../actions/postList';
+import PostListHeading from './PostListHeading';
 
 const PostList = ({ isLoading, error, postList, getPostList }) => {
   const { subreddit } = useParams();
@@ -38,6 +39,7 @@ const PostList = ({ isLoading, error, postList, getPostList }) => {
   return (
     <Box>
       <Heading>{subreddit ? `r/${subreddit}` : 'Home'}</Heading>
+      <PostListHeading />
       {postList.length > 0 ? (
         postList.map(
           ({
