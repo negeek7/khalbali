@@ -1,0 +1,57 @@
+.header{
+    border:"1px";
+    width: 470px;
+    background-color: white;
+    height:670px;
+}
+
+.header1{
+    border:"1px";
+    width: 470px;
+    background-color: white;
+    height:750px;
+}
+
+.heading{
+    color:#303344;
+    font-size: 18px;
+    margin-left: 45px;
+    font-weight:700;
+
+}
+
+Image{
+    margin-left: 40px;
+
+}
+
+.pera{
+   color:#303344;
+   font-size:18px;
+   margin-left: 45px;
+
+}
+
+.signup{
+    color: #00aced;
+    margin-bottom: 30px;
+}
+
+.term{
+    color: #00aced;
+}
+.h5{
+    color: #666f74;
+    font-size: 17px;
+}
+.formText{
+    color: #303344;
+    font-weight: bold;
+}
+
+.inputText{
+    background-color:grey;
+     color:white;
+}
+
+
