@@ -105,14 +105,6 @@ const Navbar = ({
             Submit
           </Button>
         )}
-        {/* <Flex align={'center'} marginLeft={{ base: -5 }}>
-          <Box>Page</Box>
-          <Box>News</Box>
-          <Box>Categories</Box>
-          <Box>Trending</Box>
-          <SearchIcon />
-          <Input placeholder="Search" />
-        </Flex> */}
         <div className={navStyle.burger}>
           <div className={navStyle.line}></div>
           <div className={navStyle.line}></div>
@@ -120,7 +112,9 @@ const Navbar = ({
         </div>
         <div className={navStyle.navOptions}>
           <ul>
-            <li>Categories</li>
+            <li>
+              <Link to="categories">Categories</Link>
+            </li>
             <li>Trending</li>
             <li>New</li>
             <li>Pages</li>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Table, Thead, Tr, Th, TableContainer } from '@chakra-ui/react';
 import '.././styles/postHeader.module.css';
 function PostListHeading() {

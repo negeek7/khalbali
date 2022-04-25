@@ -12,6 +12,7 @@ import CreatePostPage from './components/CreatePostPage';
 import PostList from './components/PostList';
 import ThemedBox from './components/ThemedBox';
 import CreateSubredditPage from './components/CreateSubredditPage';
+import Categories from './components/Categories';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
                 <Route path="/r/:subreddit/comments/:id">
                   <CommentsPage />
                 </Route>
+                <PublicRoute path="/categories">
+                  <Categories />
+                </PublicRoute>
                 <PublicRoute path="/login">
                   <LoginPage />
                 </PublicRoute>
