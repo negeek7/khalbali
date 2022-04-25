@@ -4,7 +4,7 @@
 }
 .boxdiv{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1.2rem;
@@ -32,5 +32,10 @@
     font-size: 1.5rem;
 }
 .categoryinput{
-    width: auto;
+    width: 250px;
+}
+ 
+
+@media only screen and (min-width: 992px){
+
 }
