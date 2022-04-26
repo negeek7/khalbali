@@ -14,7 +14,15 @@ function Categories() {
   return (
     <div>
       <Box>
-        <HStack spacing="850px">
+        <HStack
+          spacing={{
+            sm: '10em',
+            md: '20em',
+            lg: '30em',
+            xl: '50em',
+            '2xl': '56.4em',
+          }}
+        >
           <h2 className={catgBox.heading}>Categories</h2>
           <InputGroup className={catgBox.categoryinput}>
             <InputLeftElement
