@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 import {
   Box,
   Flex,
@@ -48,8 +49,8 @@ const CommentsPage = ({
   post,
   comments,
   getPostAndComments,
-  user,
 }) => {
+  const { user } = useAuth0();
   const { id } = useParams();
   useEffect(() => {
     getPostAndComments(id);
@@ -83,6 +84,7 @@ const CommentsPage = ({
   const numComments = comments.filter(({ body }) => body !== null).length;
 
   const rootComments = getCommentsWithChildren(comments);
+
   return (
     <Box>
       <Post
@@ -104,7 +106,7 @@ const CommentsPage = ({
             <Text as="span" color="gray.500">
               {'Comment as '}
             </Text>
-            <Text as="span">{user.username}</Text>
+            <Text as="span">{user.given_name}</Text>
           </Box>
           <WriteCommentBox postId={post_id} parentCommentId={null} />
         </Box>
@@ -138,7 +140,7 @@ const mapStateToProps = (state) => ({
   error: errorSelector(state),
   post: postSelector(state),
   comments: commentsSelector(state),
-  user: userSelector(state),
+  // user: userSelector(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

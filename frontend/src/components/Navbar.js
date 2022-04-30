@@ -32,12 +32,14 @@ import {
   subredditsSelector,
   createLoadingAndErrorSelector,
 } from '../selectors';
-import { startLogout } from '../actions/auth';
+// import { logout, startLogout } from '../actions/auth';
 import { getSubreddits } from '../actions/subreddits';
 import LoginAndRegisterButtons from './LoginAndRegisterButtons';
+import { useAuth0 } from '@auth0/auth0-react';
+import LogOutButton from './LogOutButton';
 
 const Navbar = ({
-  user,
+  // user,
   subreddits,
   isLoading,
   error,
@@ -45,12 +47,15 @@ const Navbar = ({
   getSubreddits,
 }) => {
   const location = useLocation();
-  const subredditName = location.pathname.match(/r\/[^\/]+/);
+  const subredditName = location.pathname.match(/r\/[^]+/);
+  const { user } = useAuth0();
+  const { logout } = useAuth0();
 
   useEffect(() => {
     getSubreddits();
   }, []);
 
+  console.log(user);
   return (
     <ThemedBox
       py={2}
@@ -63,7 +68,7 @@ const Navbar = ({
       <Image boxSize="50px" objectFit="cover" src="logo-white.png" alt="logo" />
       <Heading
         ml={[2, 4]}
-        display={user ? 'block' : ['none', 'block']}
+        // display={user ? 'block' : ['none', 'block']}
         fontSize={['1.3rem', '2.25rem']}
         color="white"
       >
@@ -134,7 +139,7 @@ const Navbar = ({
       {user ? (
         <Menu>
           <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-            {user.username}
+            {user.given_name}
           </MenuButton>
           <MenuList>
             <MenuItem display={['block', 'none']} as={Link} to="/submit">
@@ -143,18 +148,15 @@ const Navbar = ({
             <MenuItem as={Link} to="/subreddits/create">
               Create subreddit
             </MenuItem>
-            <MenuItem
-              onClick={async () => {
-                await startLogout();
-              }}
-            >
-              Logout
-            </MenuItem>
+            <MenuItem onClick={() => logout()}>Logout</MenuItem>
           </MenuList>
         </Menu>
       ) : (
         <LoginAndRegisterButtons />
       )}
+
+      {/* {user ? <LogOutButton /> : <LoginAndRegisterButtons />} */}
+      {/* <LoginAndRegisterButtons /> */}
       <ColorModeSwitcher />
     </ThemedBox>
   );
@@ -172,7 +174,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  startLogout: () => dispatch(startLogout()),
+  // startLogout: () => dispatch(startLogout()),
   getSubreddits: () => dispatch(getSubreddits()),
 });
 

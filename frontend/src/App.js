@@ -6,8 +6,8 @@ import PublicRoute from './components/PublicRoute';
 import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar';
 import CommentsPage from './components/CommentsPage';
-import LoginPage from './components/LoginPage';
-import RegisterPage from './components/RegisterPage';
+// import LoginPage from './components/LoginPage';
+// import RegisterPage from './components/RegisterPage';
 import CreatePostPage from './components/CreatePostPage';
 import PostList from './components/PostList';
 import ThemedBox from './components/ThemedBox';
@@ -29,12 +29,12 @@ function App() {
                 <PublicRoute path="/categories">
                   <Categories />
                 </PublicRoute>
-                <PublicRoute path="/login">
+                {/* <PublicRoute path="/login">
                   <LoginPage />
                 </PublicRoute>
                 <PublicRoute path="/register">
                   <RegisterPage />
-                </PublicRoute>
+                </PublicRoute> */}
                 <PrivateRoute path="/submit">
                   <CreatePostPage />
                 </PrivateRoute>

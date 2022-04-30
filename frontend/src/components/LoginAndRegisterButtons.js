@@ -1,11 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
 import { HStack, Button } from '@chakra-ui/react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const LoginAndRegisterButtons = () => {
-  const location = useLocation();
+  const { loginWithRedirect } = useAuth0();
+  // const location = useLocation();
   return (
     <HStack>
-      <Button
+      {/* <Button
         as={Link}
         to={{
           pathname: '/login',
@@ -15,8 +17,9 @@ const LoginAndRegisterButtons = () => {
         }}
       >
         Login
-      </Button>
-      <Button
+      </Button> */}
+      <Button onClick={() => loginWithRedirect()}>Login</Button>
+      {/* <Button
         as={Link}
         to={{
           pathname: '/register',
@@ -26,7 +29,7 @@ const LoginAndRegisterButtons = () => {
         }}
       >
         Register
-      </Button>
+      </Button> */}
     </HStack>
   );
 };
