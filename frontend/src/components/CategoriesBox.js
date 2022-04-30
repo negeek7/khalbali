@@ -39,7 +39,7 @@ function CategoriesBox() {
                 <Tag colorScheme="yellow">climate change</Tag>
               </WrapItem>
               <WrapItem>
-                <Tag colorScheme="red">foreign policy</Tag>
+                <Tag colorScheme="red">Changing policy</Tag>
               </WrapItem>
             </Wrap>
           </Box>
